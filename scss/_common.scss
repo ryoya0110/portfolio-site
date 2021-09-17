@@ -1,0 +1,196 @@
+@import "variable";
+
+* {
+	font-family: $font;
+}
+a {
+	text-decoration: none;
+	color: $color1;
+}
+li {
+	list-style: none;
+}
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+.container2 {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 4%;
+	box-sizing: border-box;
+}
+.container3 {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.container4 {
+	max-width: 900px;
+	margin: 0 auto;
+}
+.section {
+	padding: 200px 0;
+	border-bottom: 1px solid $color4;
+	&:nth-child(1) {
+		padding: 100px 0 200px;
+	}
+	&:last-child {
+		border-bottom: none;
+	}
+	.section_ttl {
+		position: relative;
+		font-size: 2rem;
+		font-weight: normal;
+		margin-bottom: 100px;
+		.span1 {
+			color: $color2;
+		}
+		.span2 {
+			position: relative;
+			font-size: .75rem;
+			letter-spacing: .1rem;
+			vertical-align: middle;
+			padding: 0 20px;
+			margin: 0 30px;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 0;
+				width: 10px;
+				height: 2px;
+				transform: translateY(-50%);
+				background-color: $color2;
+			}
+			&::after {
+				left: unset;
+				right: 0;
+			}
+		}
+	}
+}
+.fadeUp {
+	animation: fadeUpAnime 0.8s forwards;
+	opacity: 0;
+}
+.fadeLeft {
+	animation: fadeLeftAnime 0.8s forwards;
+	opacity: 0;
+	overflow: hidden;
+}
+.fadeRight {
+	animation: fadeRightAnime 0.8s forwards;
+	opacity: 0;
+	overflow: hidden;
+}
+.fadeUpTrigger, .fadeLeftTrigger, .fadeRightTrigger {
+	opacity: 0;
+}
+@keyframes fadeUpAnime {
+	from {
+	opacity: 0;
+	transform: translateY(100px);
+	}
+	to {
+	opacity: 1;
+	transform: translateY(0);
+	}
+}
+@keyframes fadeLeftAnime {
+	from {
+	opacity: 0;
+	transform: translateX(100px)
+	}
+
+	to {
+	opacity: 1;
+	transform: translateX(0);
+	}
+}
+@keyframes fadeRightAnime {
+	from {
+	opacity: 0;
+	transform: translateX(-100px)
+	}
+
+	to {
+	opacity: 1;
+	transform: translateX(0);
+	}
+}
+#load-animation {
+	width: 100%;
+	height: 100%;
+	background: $color3;
+	align-items: center;
+	transition: all 0.3s;
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	h1 {
+		margin: 0 auto;
+	}
+	.cats {
+		height: 40px;
+		width: 300px;
+		margin: 100px auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		.cat1 {
+			font-size: 3rem;
+			color: $color1;
+		}
+		.cat2 {
+			font-size: 4rem;
+			color: $color5;
+		}
+		.cat3 {
+			font-size: 5rem;
+			color: $color2;
+		}
+		.cat1,
+		.cat2,
+		.cat3 {
+			transform: translateY(0);
+			animation: loading 1s 8 ease-in-out;
+		}
+	}
+}
+@keyframes loading {
+	0%,
+	80%,
+	100% {
+		transform: translateY(-30px);
+	}
+	40% {
+		transform: translateY(-50px);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.section {
+		padding: 150px 0;
+		&:nth-child(1) {
+			padding: 0 0 150px;
+		}
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.section {
+		padding: 100px 0;
+		&:nth-child(1) {
+			padding: 0 0 100px;
+		}
+		&:nth-child(3) .section_ttl {
+			font-size: 1.7rem;
+		}
+		.section_ttl {
+			margin-bottom: 50px;
+		}
+	}
+}
